@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Configuración básica del documento HTML -->
+    <meta charset="UTF-8"> <!-- Codificación de caracteres UTF-8 para soporte de tildes y caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsive en dispositivos móviles -->
+    <title>TruequeYA - Intercambia lo que ya no usas</title> <!-- Título que aparece en la pestaña del navegador -->
+    <link rel="stylesheet" href="index.css"> <!-- Vincula el archivo de estilos CSS -->
+</head>
+
+<body>
+    <!-- BARRA DE NAVEGACIÓN PRINCIPAL -->
+    <div class="navbar">
+        <div class="logo">TruequeYA</div> <!-- Logo/nombre de la aplicación -->
+        <div class="nav-links">
+            <!-- Enlaces de navegación que ejecutan funciones JavaScript al hacer clic -->
+            <a href="#" onclick="mostrarExplorar()">Explorar</a>
+            <a href="#" onclick="mostrarIntercambios()">Intercambios</a>
+        </div>
+        <!-- Botón de login que cambia su función dependiendo del estado del usuario -->
+        <a href="#" class="login-btn" id="login-button">Iniciar sesión</a>
+    </div>
+
+    <!-- PÁGINA PRINCIPAL (LANDING PAGE) -->
+    <div id="pagina-principal">
+        <!-- Sección Hero: la primera sección que ve el usuario -->
+        <div class="hero">
+            <div class="hero-text">
+                <!-- Título principal de la aplicación -->
+                <h1>Intercambia lo que ya no usas</h1>
+                <!-- Descripción de la funcionalidad -->
+                <p>TruequeYA es una plataforma que te permite intercambiar bienes y servicios con otras personas de manera fácil y segura.</p>
+                <!-- Botón de llamada a la acción -->
+                <a href="#" class="cta-btn" id="start-button">Empieza a intercambiar</a>
+            </div>
+            <div class="hero-image">
+                <!-- Imagen principal de la aplicación -->
+                <img src="imagenes/Flux_Dev_un_logo_para_una_aplkicacion_q_se_llama_truequeYa_la__1.jpg" alt="Imagen de ejemplo"width="600" height="600"> 
+            </div>
+        </div>
+
+        <!-- SECCIÓN DE CARACTERÍSTICAS -->
+        <div class="features">
+            <!-- Característica 1: Publicar ofertas -->
+            <div class="feature" onclick="alert('Función disponible próximamente')">
+                <div class="feature-icon">
+                    <!-- Ícono SVG para representar documentos/ofertas -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <h3>Publica ofertas y solicitudes</h3>
+                <p>Crea anuncios de trueque para intercambiar.</p>
+            </div>
+            <!-- Característica 2: Encontrar coincidencias -->
+            <div class="feature" onclick="mostrarExplorar()">
+                <div class="feature-icon">
+                    <!-- Ícono SVG de lupa para representar búsqueda -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </div>
+                <h3>Encuentra coincidencias</h3>
+                <p>Busca y descubre otros usuarios con intereses afines</p>
+            </div>
+            <!-- Característica 3: Negociar intercambios -->
+            <div class="feature" onclick="mostrarIntercambios()">
+                <div class="feature-icon">
+                    <!-- Ícono SVG de chat para representar comunicación -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                    </svg>
+                </div>
+                <h3>Negocia el intercambio</h3>
+                <p>Comunícate fácilmente a través de mensajes</p>
+            </div>
+            <!-- Característica 4: Sistema de reputación -->
+            <div class="feature" onclick="alert('Función disponible próximamente')">
+                <div class="feature-icon">
+                    <!-- Ícono SVG de estrella para representar valoraciones -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                </div>
+                <h3>Construye tu reputación</h3>
+                <p>Obtén valoraciones en base a tus trueques</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PÁGINA EXPLORAR PRODUCTOS -->
+    <!-- Esta sección está oculta por defecto (display: none) -->
+    <div id="pagina-explorar" style="display: none;">
+        <div class="contenido-pagina">
+            <!-- Encabezado de la página con título y botón de retorno -->
+            <div class="header-pagina">
+                <h2>Explorar Productos</h2>
+                <button onclick="volverInicio()" class="btn-volver">← Volver</button>
+            </div>
+            
+            <!-- Grid de productos disponibles para intercambio -->
+            <div class="productos-grid">
+                <!-- Producto 1: Bicicleta -->
+                <div class="producto-card">
+                    <img src="imagenes/bicycle-1834265_1280.jpg" alt="Bicicleta">
+                    <h3>Bicicleta de montaña</h3>
+                    <p>Usuario: Juan123</p>
+                    <p>Busca: Patineta o scooter</p>
+                    <button onclick="contactarUsuario('Juan123', 'Bicicleta de montaña')">Contactar</button>
+                </div>
+                
+                <!-- Producto 2: Libros -->
+                <div class="producto-card">
+                    <img src="imagenes/16129657243383.jpg" alt="Libro">
+                    <h3>Libros de cocina (5 unidades)</h3>
+                    <p>Usuario: Maria_Chef</p>
+                    <p>Busca: Plantas de interior</p>
+                    <button onclick="contactarUsuario('Maria_Chef', 'Libros de cocina')">Contactar</button>
+                </div>
+                
+                <!-- Producto 3: Guitarra -->
+                <div class="producto-card">
+                    <img src="imagenes/guitar-2925274_1280.jpg" alt="Guitarra">
+                    <h3>Guitarra acústica</h3>
+                    <p>Usuario: RockStar88</p>
+                    <p>Busca: Teclado o piano</p>
+                    <button onclick="contactarUsuario('RockStar88', 'Guitarra acústica')">Contactar</button>
+                </div>
+                
+                <!-- Producto 4: Ropa de bebé -->
+                <div class="producto-card">
+                    <img src="imagenes/61wprYr8TmL._AC_UY1000_budy.jpg" alt="Ropa">
+                    <h3>Ropa de bebé (lote)</h3>
+                    <p>Usuario: MamaPrimeriza</p>
+                    <p>Busca: Juguetes educativos</p>
+                    <button onclick="contactarUsuario('MamaPrimeriza', 'Ropa de bebé')">Contactar</button>
+                </div>
+                
+                <!-- Producto 5: Videojuegos -->
+                <div class="producto-card">
+                    <img src="imagenes/ltfBqNh.jpg" alt="Videojuegos">
+                    <h3>Videojuegos PS4 (3 juegos)</h3>
+                    <p>Usuario: GamerPro</p>
+                    <p>Busca: Juegos de mesa</p>
+                    <button onclick="contactarUsuario('GamerPro', 'Videojuegos PS4')">Contactar</button>
+                </div>
+                
+                <!-- Producto 6: Cafetera -->
+                <div class="producto-card">
+                    <img src="imagenes/mini-nevera-NVE-4700_3.jpg" alt="Electrodoméstico">
+                    <h3>Cafetera express</h3>
+                    <p>Usuario: CoffeLover</p>
+                    <p>Busca: Licuadora o batidora</p>
+                    <button onclick="contactarUsuario('CoffeLover', 'Cafetera express')">Contactar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PÁGINA INTERCAMBIOS (SISTEMA DE CHAT) -->
+    <!-- Esta sección también está oculta por defecto -->
+    <div id="pagina-intercambios" style="display: none;">
+        <div class="contenido-pagina">
+            <!-- Encabezado de la página -->
+            <div class="header-pagina">
+                <h2>Mis Intercambios</h2>
+                <button onclick="volverInicio()" class="btn-volver">← Volver</button>
+            </div>
+            
+            <!-- Contenedor principal del chat -->
+            <div class="chat-container">
+                <!-- Sidebar izquierdo con lista de conversaciones -->
+                <div class="chat-sidebar">
+                    <!-- Conversación 1 (activa por defecto) -->
+                    <div class="chat-item active" onclick="abrirChat('Juan123')">
+                        <strong>Juan123</strong>
+                        <p>Sobre: Bicicleta de montaña</p>
+                    </div>
+                    <!-- Conversación 2 -->
+                    <div class="chat-item" onclick="abrirChat('Maria_Chef')">
+                        <strong>Maria_Chef</strong>
+                        <p>Sobre: Libros de cocina</p>
+                    </div>
+                    <!-- Conversación 3 -->
+                    <div class="chat-item" onclick="abrirChat('RockStar88')">
+                        <strong>RockStar88</strong>
+                        <p>Sobre: Guitarra acústica</p>
+                    </div>
+                </div>
+                
+                <!-- Área principal del chat -->
+                <div class="chat-area">
+                    <!-- Encabezado del chat activo -->
+                    <div class="chat-header">
+                        <h3 id="chat-usuario">Juan123</h3> <!-- Nombre del usuario con quien se chatea -->
+                        <p id="chat-producto">Intercambio: Bicicleta de montaña</p> <!-- Producto en discusión -->
+                    </div>
+                    
+                    <!-- Área de mensajes -->
+                    <div class="chat-messages" id="chat-messages">
+                        <!-- Mensaje del otro usuario -->
+                        <div class="mensaje otro">
+                            <strong>Juan123:</strong>
+                            <p>Hola! Vi que te interesa mi bicicleta</p>
+                            <span class="hora">10:30 AM</span>
+                        </div>
+                        <!-- Mensaje propio -->
+                        <div class="mensaje propio">
+                            <strong>Tú:</strong>
+                            <p>Sí! Tengo una patineta eléctrica que podría interesarte</p>
+                            <span class="hora">10:32 AM</span>
+                        </div>
+                        <!-- Otro mensaje del usuario -->
+                        <div class="mensaje otro">
+                            <strong>Juan123:</strong>
+                            <p>¡Genial! ¿Podrías enviarme fotos?</p>
+                            <span class="hora">10:35 AM</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Área de entrada de texto para nuevos mensajes -->
+                    <div class="chat-input">
+                        <input type="text" id="mensaje-input" placeholder="Escribe tu mensaje...">
+                        <button onclick="enviarMensaje()">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE LOGIN -->
+    <!-- Modal oculto que aparece cuando el usuario quiere iniciar sesión -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <!-- Botón X para cerrar el modal -->
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <h2>Iniciar sesión</h2>
+            <!-- Formulario de inicio de sesión -->
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="form-submit">Ingresar</button>
+            </form>
+            <!-- Enlace para cambiar al modal de registro -->
+            <p style="margin-top: 15px; text-align: center;">
+                ¿No tienes cuenta? <a href="#" onclick="mostrarRegistro()">Regístrate</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- MODAL DE REGISTRO -->
+    <!-- Modal para crear nueva cuenta de usuario -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <h2>Registro de usuario</h2>
+            <!-- Formulario de registro -->
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="reg-name">Nombre completo</label>
+                    <input type="text" id="reg-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Correo electrónico</label>
+                    <input type="email" id="reg-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Contraseña</label>
+                    <input type="password" id="reg-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-confirm">Confirmar contraseña</label>
+                    <input type="password" id="reg-confirm" required>
+                </div>
+                <button type="submit" class="form-submit">Registrarse</button>
+            </form>
+            <!-- Enlace para cambiar al modal de login -->
+            <p style="margin-top: 15px; text-align: center;">
+                ¿Ya tienes cuenta? <a href="#" onclick="mostrarLogin()">Inicia sesión</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        &copy; 2025 TruequeYA - Todos los derechos reservados
+    </footer>
+
+    <!-- JAVASCRIPT - LÓGICA DE LA APLICACIÓN -->
+    <script>
+        // === VARIABLES GLOBALES ===
+        // Referencias a elementos del DOM para fácil acceso
+        var loginModal = document.getElementById('login-modal');
+        var registerModal = document.getElementById('register-modal');
+        var loginButton = document.getElementById('login-button');
+        var startButton = document.getElementById('start-button');
+        
+        // Variables de estado de la aplicación
+        var usuarioLogueado = false; // Controla si hay un usuario autenticado
+        var nombreUsuario = ''; // Almacena el nombre del usuario actual
+
+        // === INICIALIZACIÓN DE LA APLICACIÓN ===
+        // Se ejecuta cuando se carga completamente la página
+        window.onload = function() {
+            // Configurar evento de clic en el botón de login
+            loginButton.onclick = function() {
+                if (usuarioLogueado) {
+                    // Si ya está logueado, mostrar opciones de usuario
+                    mostrarMenuUsuario();
+                } else {
+                    // Si no está logueado, mostrar modal de login
+                    mostrarLogin();
+                }
+            };
+
+            // Configurar evento de clic en el botón de inicio
+            startButton.onclick = function() {
+                if (usuarioLogueado) {
+                    // Si está logueado, mostrar mensaje de bienvenida
+                    alert('¡Bienvenido al dashboard, ' + nombreUsuario + '!');
+                } else {
+                    // Si no está logueado, pedir que inicie sesión
+                    mostrarLogin();
+                }
+            };
+
+            // Configurar envío del formulario de login
+            document.getElementById('login-form').onsubmit = function(e) {
+                e.preventDefault(); // Evitar recarga de página
+                hacerLogin(); // Ejecutar función de login
+            };
+
+            // Configurar envío del formulario de registro
+            document.getElementById('register-form').onsubmit = function(e) {
+                e.preventDefault(); // Evitar recarga de página
+                hacerRegistro(); // Ejecutar función de registro
+            };
+
+            // Configurar tecla Enter en el input del chat
+            document.getElementById('mensaje-input').onkeypress = function(e) {
+                if (e.key === 'Enter') {
+                    enviarMensaje(); // Enviar mensaje al presionar Enter
+                }
+            };
+        };
+
+        // === FUNCIONES DE NAVEGACIÓN ENTRE PÁGINAS ===
+        
+        // Mostrar la página de explorar productos
+        function mostrarExplorar() {
+            document.getElementById('pagina-principal').style.display = 'none';
+            document.getElementById('pagina-explorar').style.display = 'block';
+            document.getElementById('pagina-intercambios').style.display = 'none';
+        }
+
+        // Mostrar la página de intercambios (chat)
+        function mostrarIntercambios() {
+            // Verificar si el usuario está logueado
+            if (!usuarioLogueado) {
+                alert('Debes iniciar sesión para ver tus intercambios');
+                mostrarLogin();
+                return;
+            }
+            // Cambiar a la página de intercambios
+            document.getElementById('pagina-principal').style.display = 'none';
+            document.getElementById('pagina-explorar').style.display = 'none';
+            document.getElementById('pagina-intercambios').style.display = 'block';
+        }
+
+        // Volver a la página principal
+        function volverInicio() {
+            document.getElementById('pagina-principal').style.display = 'block';
+            document.getElementById('pagina-explorar').style.display = 'none';
+            document.getElementById('pagina-intercambios').style.display = 'none';
+        }
+
+        // === FUNCIONES PARA MANEJO DE MODALES ===
+        
+        // Mostrar modal de login
+        function mostrarLogin() {
+            loginModal.style.display = 'block';
+            registerModal.style.display = 'none';
+        }
+
+        // Mostrar modal de registro
+        function mostrarRegistro() {
+            registerModal.style.display = 'block';
+            loginModal.style.display = 'none';
+        }
+
+        // Cerrar todos los modales
+        function cerrarModal() {
+            loginModal.style.display = 'none';
+            registerModal.style.display = 'none';
+        }
+
+        // Cerrar modal al hacer click fuera de él
+        window.onclick = function(event) {
+            if (event.target == loginModal || event.target == registerModal) {
+                cerrarModal();
+            }
+        };
+
+        // === FUNCIONES DE AUTENTICACIÓN ===
+        
+        // Procesar inicio de sesión (simulado)
+        function hacerLogin() {
+            // Obtener valores del formulario
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            // Validación básica de campos vacíos
+            if (email === '' || password === '') {
+                alert('Por favor completa todos los campos');
+                return;
+            }
+
+            // Simular login exitoso (en una app real, aquí iría la validación con servidor)
+            usuarioLogueado = true;
+            nombreUsuario = email.split('@')[0]; // Usar parte del email como nombre de usuario
+            
+            // Actualizar interfaz de usuario
+            loginButton.textContent = 'Hola, ' + nombreUsuario;
+            startButton.textContent = 'Ir a Dashboard';
+            
+            // Mostrar confirmación y limpiar
+            alert('¡Login exitoso! Bienvenido ' + nombreUsuario);
+            cerrarModal();
+            limpiarFormularios();
+        }
+
+        // Procesar registro de usuario (simulado)
+        function hacerRegistro() {
+            // Obtener valores del formulario
+            var nombre = document.getElementById('reg-name').value;
+            var email = document.getElementById('reg-email').value;
+            var password = document.getElementById('reg-password').value;
+            var confirmar = document.getElementById('reg-confirm').value;
+
+            // Validaciones del formulario
+            if (nombre === '' || email === '' || password === '' || confirmar === '') {
+                alert('Por favor completa todos los campos');
+                return;
+            }
+
+            if (password !== confirmar) {
+                alert('Las contraseñas no coinciden');
+                return;
+            }
+
+            if (password.length < 6) {
+                alert('La contraseña debe tener al menos 6 caracteres');
+                return;
+            }
+
+            // Simular registro exitoso
+            usuarioLogueado = true;
+            nombreUsuario = nombre;
+            
+            // Actualizar interfaz
+            loginButton.textContent = 'Hola, ' + nombreUsuario;
+            startButton.textContent = 'Ir a Dashboard';
+            
+            // Mostrar confirmación y limpiar
+            alert('¡Registro exitoso! Bienvenido ' + nombreUsuario);
+            cerrarModal();
+            limpiarFormularios();
+        }
+
+        // Mostrar menú de opciones del usuario logueado
+        function mostrarMenuUsuario() {
+            var opcion = confirm('¿Quieres cerrar sesión?');
+            if (opcion) {
+                cerrarSesion();
+            }
+        }
+
+        // Cerrar sesión del usuario
+        function cerrarSesion() {
+            // Resetear variables de estado
+            usuarioLogueado = false;
+            nombreUsuario = '';
+            
+            // Restaurar interfaz original
+            loginButton.textContent = 'Iniciar sesión';
+            startButton.textContent = 'Empieza a intercambiar';
+            
+            alert('Sesión cerrada correctamente');
+            volverInicio(); // Volver a la página principal
+        }
+
+        // Limpiar todos los formularios
+        function limpiarFormularios() {
+            document.getElementById('login-form').reset();
+            document.getElementById('register-form').reset();
+        }
+
+        // === FUNCIONES DE CONTACTO E INTERCAMBIO ===
+        
+        // Contactar a un usuario para intercambio
+        function contactarUsuario(usuario, producto) {
+            // Verificar autenticación
+            if (!usuarioLogueado) {
+                alert('Debes iniciar sesión para contactar usuarios');
+                mostrarLogin();
+                return;
+            }
+            // Mostrar confirmación y redirigir al chat
+            alert('Contactando a ' + usuario + ' sobre: ' + producto);
+            mostrarIntercambios();
+        }
+
+        // === FUNCIONES DEL SISTEMA DE CHAT ===
+        
+        // Abrir conversación con un usuario específico
+        function abrirChat(usuario) {
+            // Remover clase 'active' de todos los elementos del chat
+            var items = document.querySelectorAll('.chat-item');
+            for (var i = 0; i < items.length; i++) {
+                items[i].classList.remove('active');
+            }
+            
+            // Agregar clase 'active' al elemento seleccionado
+            event.target.closest('.chat-item').classList.add('active');
+            
+            // Actualizar información del chat según el usuario
+            document.getElementById('chat-usuario').textContent = usuario;
+            
+            // Cambiar descripción del producto según el usuario
+            if (usuario === 'Juan123') {
+                document.getElementById('chat-producto').textContent = 'Intercambio: Bicicleta de montaña';
+            } else if (usuario === 'Maria_Chef') {
+                document.getElementById('chat-producto').textContent = 'Intercambio: Libros de cocina';
+            } else if (usuario === 'RockStar88') {
+                document.getElementById('chat-producto').textContent = 'Intercambio: Guitarra acústica';
+            }
+        }
+
+        // Enviar nuevo mensaje en el chat
+        function enviarMensaje() {
+            var input = document.getElementById('mensaje-input');
+            var mensaje = input.value.trim(); // Remover espacios en blanco
+            
+            // No enviar mensajes vacíos
+            if (mensaje === '') {
+                return;
+            }
+            
+            // Crear elemento HTML para el mensaje
+            var mensajeDiv = document.createElement('div');
+            mensajeDiv.className = 'mensaje propio'; // Clase CSS para mensaje propio
+            mensajeDiv.innerHTML = '<strong>Tú:</strong><p>' + mensaje + '</p><span class="hora">' + obtenerHora() + '</span>';
+            
+            // Agregar mensaje al área de chat
+            var chatMessages = document.getElementById('chat-messages');
+            chatMessages.appendChild(mensajeDiv);
+            
+            // Limpiar el input
+            input.value = '';
+            
+            // Hacer scroll automático al último mensaje
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Simular respuesta automática del otro usuario después de 2 segundos
+            setTimeout(function() {
+                var respuestaDiv = document.createElement('div');
+                respuestaDiv.className = 'mensaje otro'; // Clase CSS para mensaje de otro usuario
+                var usuario = document.getElementById('chat-usuario').textContent;
+                respuestaDiv.innerHTML = '<strong>' + usuario + ':</strong><p>Perfecto, hablemos de los detalles</p><span class="hora">' + obtenerHora() + '</span>';
+                chatMessages.appendChild(respuestaDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll automático
+            }, 2000);
+        }
+
+        // Obtener hora actual en formato 12 horas con AM/PM
+        function obtenerHora() {
+            var ahora = new Date();
+            var horas = ahora.getHours();
+            var minutos = ahora.getMinutes();
+            var ampm = horas >= 12 ? 'PM' : 'AM';
+            
+            // Convertir a formato 12 horas
+            horas = horas % 12;
+            horas = horas ? horas : 12; // 0 se convierte en 12
+            
+            // Agregar cero inicial a minutos menores a 10
+            minutos = minutos < 10 ? '0' + minutos : minutos;
+            
+            return horas + ':' + minutos + ' ' + ampm;
+        }
+    </script>
+    
+</body>
+
+</html>
